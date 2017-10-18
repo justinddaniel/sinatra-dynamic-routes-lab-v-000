@@ -17,6 +17,7 @@ class App < Sinatra::Base
   get '/say/:number/:phrase' do
     @number = params[:number]
     @phrase = params[:phrase]
+    phrase = @phrase.gsub(/(%20)/, ' ')
     number = @number.to_i
     @phrase * number
   end
